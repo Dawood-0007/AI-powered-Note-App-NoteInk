@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# NoteInk - AI-Powered Note-Taking App
 
-## Getting Started
+Welcome to **NoteInk**, a modern AI-powered note-taking application built using a monorepo structure with **Next.js** for the web and **Expo** for the mobile application. NoteInk combines a sleek, user-friendly interface with an intelligent AI assistant to enhance your note-taking experience.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **AI Assistant**: Leverage the power of an AI assistant to answer queries, summarize content, or assist with note organization.
+- **Cross-Platform**: Seamless experience on both web and mobile platforms.
+- **Simple UI**: Intuitive and accessible design, suitable for users of all levels.
+- **Fast Setup**: Quick and easy setup for developers to get started with the codebase.
+
+## Prerequisites
+
+Before setting up the project, ensure you have the following installed:
+
+- **Node.js** (v16 or higher)
+- **npm** or **yarn**
+- **Git**
+- A **Gemini API Key** (obtainable for free from Google AI Studio)
+
+## Setup Instructions
+
+To get started, clone the repository by running the following command in your terminal:
+
+```
+git clone https://github.com/Dawood-0007/AI-powered-Note-App-NoteInk.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The repository contains two folders in the `apps` directory: one for the mobile app (`mobile/NoteInk`) and one for the web app (`web/noteink`).  
+  
+You can visit website to see the web version [here](https://noteink-web.vercel.app)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## How To setUp web code  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Navigate to the web app directory:
 
-## Learn More
+   ```bash
+   cd ./apps/web/noteink
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Install dependencies:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   npm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Create a `.env` file in the `web/noteink` directory and add your Gemini API key:
 
-## Deploy on Vercel
+   ```env
+   GEMINI_API_KEY=your-gemini-api-key
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Start the Next.js development server:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   npm run dev
+   ```
+
+   The web app should now be running on `http://localhost:3000` (or another port if specified).
+
+For further details you can visit nextjs documentaion [here](https://nextjs.org/docs)  

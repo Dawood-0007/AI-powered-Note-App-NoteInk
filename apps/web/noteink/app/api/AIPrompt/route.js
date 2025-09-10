@@ -38,7 +38,6 @@ if the question is just greeting then greet back and add how can I assist you? a
 
     return NextResponse.json({ response: responseText });
   } catch (error) {
-    console.log(error)
     console.error("AI Error:", error);
     return NextResponse.json({ reply: "⚠️ Error from AI" }, { status: 500 });
   }

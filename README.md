@@ -1,135 +1,109 @@
-# Turborepo starter
+# NoteInk - AI-Powered Note-Taking App
 
-This Turborepo starter is maintained by the Turborepo core team.
+Welcome to **NoteInk**, a modern AI-powered note-taking application built using a monorepo structure with **Next.js** for the web and **Expo** for the mobile application. NoteInk combines a sleek, user-friendly interface with an intelligent AI assistant to enhance your note-taking experience.
 
-## Using this example
+## Features
 
-Run the following command:
+- **AI Assistant**: Leverage the power of an AI assistant to answer queries, summarize content, or assist with note organization.
+- **Cross-Platform**: Seamless experience on both web and mobile platforms.
+- **Simple UI**: Intuitive and accessible design, suitable for users of all levels.
+- **Fast Setup**: Quick and easy setup for developers to get started with the codebase.
 
-```sh
-npx create-turbo@latest
-```
+## Prerequisites
 
-## What's inside?
+Before setting up the project, ensure you have the following installed:
 
-This Turborepo includes the following packages/apps:
+- **Node.js** (v16 or higher)
+- **npm** or **yarn**
+- **Git**
+- A **Gemini API Key** (obtainable for free from Google AI Studio)
 
-### Apps and Packages
+## Setup Instructions
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
+To get started, clone the repository by running the following command in your terminal:
 
 ```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
+git clone https://github.com/Dawood-0007/AI-powered-Note-App-NoteInk.git
 ```
 
-You can build a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+The repository contains two folders in the `apps` directory: one for the mobile app (`mobile/NoteInk`) and one for the web app (`web/noteink`).  
+  
+To see app running you can also download apk from the link [here](https://drive.google.com/drive/folders/11fO6iLtXGjIXxRHin3Zce9r1q16xrk-s?usp=sharing) -- only for android.  
+  
+As well as, you can visit website to see the web version [here](https://noteink-web.vercel.app)
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
+### Mobile App Setup
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-```
+1. Navigate to the mobile app directory:
 
-### Develop
+   ```bash
+   cd ./apps/mobile/NoteInk
+   ```
 
-To develop all apps and packages, run the following command:
+2. Install dependencies:
 
-```
-cd my-turborepo
+   ```bash
+   npm install
+   ```
 
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
+3. Create a `.env` file in the `mobile/NoteInk` directory and add your Gemini API key:
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
-```
+   ```env
+   EXPO_PUBLIC_GEMINI_API_KEY=your-gemini-api-key
+   ```
 
-You can develop a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+4. Start the Expo development server:
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
+   ```bash
+   npx expo start
+   ```
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
+   This will launch the mobile app in development mode. You can scan the QR code with the Expo Go app on your mobile device or run it on an emulator.
 
-### Remote Caching
+For further details you can visit expo documentaion [here](https://docs.expo.dev/)
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
+### Web App Setup
 
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+1. Navigate to the web app directory:
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+   ```bash
+   cd ./apps/web/noteink
+   ```
 
-```
-cd my-turborepo
+2. Install dependencies:
 
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo login
+   ```bash
+   npm install
+   ```
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
-```
+3. Create a `.env` file in the `web/noteink` directory and add your Gemini API key:
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+   ```env
+   GEMINI_API_KEY=your-gemini-api-key
+   ```
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+4. Start the Next.js development server:
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo link
+   ```bash
+   npm run dev
+   ```
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
-```
+   The web app should now be running on `http://localhost:3000` (or another port if specified).
 
-## Useful Links
+For further details you can visit nextjs documentaion [here](https://nextjs.org/docs)  
 
-Learn more about the power of Turborepo:
+## Contributing
 
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+We warmly welcome contributions to **NoteInk**! Whether it's a bug fix, feature addition, or documentation improvement, your efforts will help make NoteInk better for everyone. To contribute:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/your-feature-name`).
+3. Make your changes and commit them (`git commit -m "Add your message here"`).
+4. Push to your branch (`git push origin feature/your-feature-name`).
+5. Open a pull request on GitHub.
+
+Please ensure your code follows the project's coding standards and includes appropriate tests.
+
+## Issues and Feedback
+
+If you encounter any issues or have suggestions for improvement, please create an issue on the GitHub repository. We appreciate your feedback!
