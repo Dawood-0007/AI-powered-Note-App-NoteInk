@@ -4,7 +4,7 @@ const GEMINI_API_KEY = process.env.EXPO_PUBLIC_GEMINI_API_KEY;
 async function main(textQuestion, text, previousMessages) {
   try {
 
-    const res = await fetch("http://noteink-web.vercel.app:3000/api/AIPrompt", {
+    const res = await fetch("https://noteink-web.vercel.app/api/AIPrompt", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ input: textQuestion, noteText: text, messages: previousMessages }),
