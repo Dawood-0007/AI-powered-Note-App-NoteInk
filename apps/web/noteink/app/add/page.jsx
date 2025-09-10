@@ -100,7 +100,7 @@ const AddNotePage = () => {
           className={[styles.input, styles.textArea].join(" ")}
           style={{ color: colors.text }}
         />
-        <p className="firstButtonText" style={{bottom: device !== "desktop" ? chatVisible ? "47%" : "90px" : "90px"}}>Confirm</p>
+        <p className="firstButtonText">Confirm</p>
         <button
           onClick={handlePress}
           className="mainAddButton"
@@ -109,7 +109,7 @@ const AddNotePage = () => {
           ✓
         </button>
 
-        <p className="secondButtonText" style={{ color: colors.text, bottom: device !== "desktop" ? chatVisible ? "47%" : "90px" : "90px" }}>Ask AI</p>
+        <p className="secondButtonText">Ask AI</p>
         <button className="mainAddButtonSec" style={{backgroundColor: colors.btnColorBackground, cursor: "pointer", bottom: device !== "desktop" ? chatVisible ? "40%" : "20px" : "20px"}} onClick={handlePressAI}>
 
           <p style={ { color: colors.btnColor, display: "flex", alignItems: "center", justifyContent: "center" } }>

@@ -63,6 +63,10 @@ export default function Index() {
         }
       />
 
+      <View style={styles.MainText}>
+        <Text style={{ color: colors.text }}>Add</Text>
+      </View>
+
       <Pressable style={styles.noteAdder} onPress={() => { router.push("/add") }}>
         <Text style={styles.noteAdderText}>+</Text>
       </Pressable>
@@ -132,6 +136,11 @@ function createStyles(themeColor) {
       alignContent: "center",
       width: "100%",
       paddingLeft: 16,
+    },
+    MainText: {
+      position: "absolute",
+      bottom: 82,
+      right: 33,
     }
   });
 }

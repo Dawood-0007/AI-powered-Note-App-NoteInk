@@ -57,16 +57,13 @@ const page = () => {
     const storeData = (note) => {
       let updatedValue = '';
     try {
-      console.log(id)
       const previousValue = localStorage.getItem("my-notes");
-      console.log(previousValue);
 
       const allNotes = previousValue ? JSON.parse(previousValue) : [];
 
       const filteredNotes = allNotes.filter(n => n.id !== parseInt(id));
 
       filteredNotes.push(note);
-      console.log(filteredNotes)
     
       updatedValue = JSON.stringify(filteredNotes);
 
@@ -130,7 +127,7 @@ const page = () => {
           className={[styles.input, styles.textArea].join(" ")}
           style={{ color: colors.text }}
         />
-            <p className="firstButtonText" style={{bottom: device !== "desktop" ? chatVisible ? "47%" : "90px" : "90px"}}>Confirm</p>
+            <p className="firstButtonText">Confirm</p>
           <button
             onClick={handlePress}
             className="mainAddButton" 
@@ -139,7 +136,7 @@ const page = () => {
             ✓
           </button>
 
-          <p className="secondButtonText" style={{ color: colors.text, bottom: device !== "desktop" ? chatVisible ? "47%" : "90px" : "90px" }}>Ask AI</p>
+          <p className="secondButtonText">Ask AI</p>
                   <button className="mainAddButtonSec" style={{backgroundColor: colors.btnColorBackground, cursor: "pointer", bottom: device !== "desktop" ? chatVisible ? "40%" : "20px" : "20px"}} onClick={handlePressAI}>
           
                     <p style={ { color: colors.btnColor, display: "flex", alignItems: "center", justifyContent: "center" } }>

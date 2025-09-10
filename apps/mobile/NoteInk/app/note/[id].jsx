@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, SafeAreaView, Pressable, StatusBar} from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, Pressable, StatusBar } from 'react-native'
 import { router, useLocalSearchParams } from 'expo-router'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import React, { useState, useEffect } from 'react'
@@ -31,7 +31,7 @@ const NoteDetail = () => {
     if (!note) {
         return (
             <SafeAreaView style={styles.container}>
-                <Header shown={true} page={"note"} id={null}/>
+                <Header shown={true} page={"note"} id={null} />
                 <Text style={[styles.text, { textAlign: "center" }]}>
                     Loading note...
                 </Text>
@@ -41,13 +41,17 @@ const NoteDetail = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Header shown={true} page={"note"} id={null}/>
+            <Header shown={true} page={"note"} id={null} />
             <View style={styles.noteFields}>
                 <Text style={[styles.title, styles.text]}>{note.title}</Text>
                 <Text style={{ paddingLeft: 10, color: colors.text }}>
                     Date : {note.date}
                 </Text>
                 <Text style={[styles.content, styles.text]}>{note.content}</Text>
+            </View>
+
+            <View style={styles.MainText}>
+                <Text style={{ color: colors.text }}>Edit</Text>
             </View>
 
             <Pressable
@@ -117,5 +121,10 @@ function createStyles(colors) {
             fontSize: 28,
             color: colors.btnColor,
         },
+        MainText: {
+            position: "absolute",
+            bottom: 82,
+            right: 33,
+        }
     })
 }

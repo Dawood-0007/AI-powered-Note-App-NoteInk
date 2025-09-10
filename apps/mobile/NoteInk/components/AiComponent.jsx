@@ -22,7 +22,7 @@ export default function AIChatBar({ visible, onClose, noteText }) {
     try {
       setInput("");
       const res = await main(input, noteText, messages);
-    //   const data = await res.json();
+    
       const aiMessage = res || "No response from AI";
       setMessages((prev) => [...prev, { role: "assistant", content: aiMessage }]);
     } catch (err) {
