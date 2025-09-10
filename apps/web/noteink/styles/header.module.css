@@ -1,0 +1,30 @@
+.noteHeader {
+  padding: 16px;
+  border-bottom: 1px solid #4e4e4e;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.noteHeaderText {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.backButton {
+  font-size: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.themeButton {
+    cursor: pointer;
+}

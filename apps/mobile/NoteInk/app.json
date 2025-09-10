@@ -1,0 +1,55 @@
+{
+  "expo": {
+    "name": "NoteInk",
+    "slug": "noteink",
+    "owner": "abdullah7007",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/NoteInk.jpg",
+    "scheme": "noteink",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/NoteInk.jpg",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true,
+      "package": "com.abdullah7007.noteink"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/NoteInk.jpg"
+    },
+    "plugins": [
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/NoteInk.jpg",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "85fb29a8-7adb-4942-af82-b97145f38135"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/85fb29a8-7adb-4942-af82-b97145f38135"
+    }
+  }
+}

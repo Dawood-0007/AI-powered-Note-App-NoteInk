@@ -1,0 +1,33 @@
+.boxContainer {
+    display: flex;
+    width: 95vw;
+    margin: auto;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.mainNotesPara {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.box {
+    padding: 16px;
+    width: 100%;
+    border-radius: 15px;
+    max-width: 93vw;
+}
+
+.box h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.box p {
+    font-size: 16px;
+    line-height: 1.5;
+}

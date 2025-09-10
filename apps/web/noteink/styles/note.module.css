@@ -1,0 +1,26 @@
+.noteContainer {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+.noteFields {
+  padding: 16px;
+}
+
+.noteTitle {
+  font-weight: bold;
+  border-bottom: 1px solid;
+  font-size: 20px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.noteContent {
+  font-size: 16px;
+  font-weight: normal;
+  margin-top: 12px;
+  height: 300px;
+  padding: 12px;
+  margin-bottom: 12px;
+}

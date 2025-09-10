@@ -1,0 +1,105 @@
+.chatContainer {
+    position: fixed;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+
+.chatHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatHeaderText {
+  flex: 1;
+  font-size: 24px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.chatClose {
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.chatDivider {
+  border: none;
+  height: 1px;
+  background-color: gray;
+  margin: 8px 0;
+  width: 100%;
+}
+
+.chatMessages {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.chatBubble {
+  padding: 10px;
+  border-radius: 15px;
+  margin: 4px 0;
+  font-size: 14px;
+  max-width: 70%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  word-wrap: break-word;
+}
+
+.chatBubbleUser {
+  align-self: flex-end;
+  background-color: rgb(50, 50, 255);
+  color: white;
+}
+
+.chatBubbleAssistant {
+  background-color: #e6e6e6;
+  color: #000;
+  align-self: flex-start;
+}
+
+.chatGenerating {
+  font-size: 12px;
+  color: gray;
+  margin: 4px 0;
+}
+
+.chatInputContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.chatInput {
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px;
+  margin-right: 6px;
+  font-size: 14px;
+}
+
+.chatSend {
+    background-color: rgb(83, 158, 255);
+    color: black;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.chatSend:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

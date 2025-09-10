@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+/* :root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+/* 
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+} */
+
+.mainAddButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 36px;
+}
+
+.mainAddButtonSec {
+    position: fixed;
+    bottom: 20px;
+    right: 100px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 36px;
+}
+
+.firstButtonText {
+  position: fixed;
+  bottom: 90px;
+  right: 30px;
+  font-size: 14px;
+}
+
+.secondButtonText {
+  position: fixed;
+  bottom: 90px;
+  right: 110px;
+  font-size: 14px;
+}
