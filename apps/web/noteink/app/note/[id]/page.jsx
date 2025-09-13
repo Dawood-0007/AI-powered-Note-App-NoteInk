@@ -41,7 +41,7 @@ const page = () => {
 
   return (
     <div className={styles.noteContainer} style={{ backgroundColor: colors.background }}>
-      <Header shown={true} page="note" id={null} />
+      <Header shown={true} page="note" id={id} />
 
       <div className={styles.noteFields}>
         <h2 className={styles.noteTitle} style={{ borderColor: colors.text, color: colors.text }}>

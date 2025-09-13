@@ -41,7 +41,7 @@ const NoteDetail = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Header shown={true} page={"note"} id={null} />
+            <Header shown={true} page={"note"} id={id} />
             <View style={styles.noteFields}>
                 <Text style={[styles.title, styles.text]}>{note.title}</Text>
                 <Text style={{ paddingLeft: 10, color: colors.text }}>
