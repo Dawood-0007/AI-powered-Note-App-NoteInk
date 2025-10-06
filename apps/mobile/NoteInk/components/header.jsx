@@ -8,7 +8,7 @@ import { router } from 'expo-router';
 import ConfirmBox from './ConfirmComponent';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const Header = ({shown, page, id}) => {
+const Header = ({shown, page, id, dialogShown}) => {
     const { colors, toggleTheme, theme } = useTheme();
 
     const [showConfirmDelete, setShowConfirmDelete] = useState(false);
@@ -59,11 +59,15 @@ const Header = ({shown, page, id}) => {
   }
 
   const handleConfirmBack = () => {
-    if (page === "note") {
-      handleBackPress()
-      return;
+    if (dialogShown) {
+      handleBackPress();
+    } else {
+      if (page === "note") {
+        handleBackPress()
+        return;
+      }
+      setShowConfirmBack(true)
     }
-    setShowConfirmBack(true)
   }
 
   return (

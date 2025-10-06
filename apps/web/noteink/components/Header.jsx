@@ -10,7 +10,7 @@ import { Colors } from "../colors/color-theme";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import ConfirmBox from "./ConfirmComponent";
 
-const Header = ({ shown, page, id }) => {
+const Header = ({ shown, page, id, dialogShown }) => {
   const router = useRouter();
   const { theme, setTheme } = useTheme();
 
@@ -62,10 +62,14 @@ const Header = ({ shown, page, id }) => {
   }
 
   const handleBackConfirm = () => {
-    if (page === "note") {
+    if (dialogShown) {
       handleBackPress();
     } else {
-      setShowConfirmBack(true)
+      if (page === "note") {
+        handleBackPress();
+      } else {
+        setShowConfirmBack(true)
+      }
     }
   }
 

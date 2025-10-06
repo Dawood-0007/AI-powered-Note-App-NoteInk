@@ -18,7 +18,9 @@ const page = () => {
     const { id } = useParams();
 
     const [title, setTitle] = useState("");
+    const [intialTitle, setInitialTitle] = useState("");
     const [content, setContent] = useState("");
+    const [intialContent, setInitialContent] = useState("");
     const [date, setDate] = useState("");
     const [chatVisible, setChatVisible] = useState(false);
     const [device, setDevice] = useState("desktop");
@@ -31,15 +33,18 @@ const page = () => {
                     const notes = JSON.parse(previousValue);
                     const note = notes.find(n => n.id === parseInt(id));
                     if (note) {
-                        setTitle(note.title);
-                        setContent(note.content);
-                        setDate(note.date);
+                      setTitle(note.title);
+                      setInitialTitle(note.title);
+                      setContent(note.content);
+                      setInitialContent(note.content);
+                      setDate(note.date);
                     }
                 }
             } catch (e) {
                 console.error("Failed to fetch the data from localStorage", e);
             }
         }
+
         const checkDevice = () => {
             if (window.innerWidth < 768) {
               setDevice("mobile");
@@ -96,8 +101,6 @@ const page = () => {
     };
 
     storeData(note);
-    setTitle("");
-    setContent("");
 
     router.push(`/`);
   };
@@ -108,7 +111,7 @@ const page = () => {
 
   return (
     <div style={{ backgroundColor: colors.background, minHeight: "100vh", width: device === "desktop" ? chatVisible ? "calc(100% - 320px)": "100%" : "100%", position: "absolute", right: device === "desktop" ? chatVisible ? 0 : 0 : 0 }}>
-      <Header shown={true} page="add" id={null} />
+      <Header shown={true} page="add" id={null} dialogShown={title.trim() === intialTitle && content.trim() === intialContent}/>
       <div style={{ padding: 16 }}>
         <input
           type="text"

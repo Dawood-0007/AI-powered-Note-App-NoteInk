@@ -15,8 +15,10 @@ const index = () => {
 
     const platform = Platform.OS;
 
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
+    const [title, setTitle] = useState("");
+    const [intialTitle, setInitialTitle] = useState("");
+    const [content, setContent] = useState("");
+    const [intialContent, setInitialContent] = useState("");
     const [date, setDate] = useState('');
     const [chatVisible, setChatVisible] = useState(false);
 
@@ -26,7 +28,9 @@ const index = () => {
             let allNotes = JSON.parse(storedNote);
             let myNote = allNotes.find(note => note.id === parseInt(id));
             setTitle(myNote.title);
+            setInitialTitle(myNote.title);
             setContent(myNote.content);
+            setInitialContent(myNote.content);
             setDate(myNote.date);
         };
 
@@ -96,7 +100,7 @@ const index = () => {
                 keyboardVerticalOffset={1}
             >
                 <SafeAreaView style={[styles.container, { width: platform === "web" ? chatVisible ? "calc(100% - 300px)" : "100%" : "100%", position: "absolute", right: platform === "web" ? chatVisible ? 0 : 0 : 0 }]}>
-                    <Header shown={true} page={"edit"} id={id} />
+                    <Header shown={true} page={"edit"} id={id} dialogShown={title.trim() === intialTitle && content.trim() === intialContent}/>
                     <View style={styles.noteAddFields}>
                         <TextInput
                             placeholder='Title Here'

@@ -81,7 +81,7 @@ const AddNotePage = () => {
 
   return (
     <div style={{ backgroundColor: colors.background, minHeight: "100vh", width: device === "desktop" ? chatVisible ? "calc(100% - 320px)": "100%" : "100%", position: "absolute", right: device === "desktop" ? chatVisible ? 0 : 0 : 0 }}>
-      <Header shown={true} page="add" id={null} />
+      <Header shown={true} page="add" id={null} dialogShown={title.trim() === "" && content.trim() === ""}/>
       <div style={{ padding: 16 }}>
         <input
           type="text"

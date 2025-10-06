@@ -83,7 +83,7 @@ const index = () => {
             >
                 <SafeAreaView style={[styles.container, { width: platform === "web" ? chatVisible ? "calc(100% - 300px)" : "100%" : "100%", position: "absolute", right: platform === "web" ? chatVisible ? 0 : 0 : 0 }]}>
 
-                    <Header shown={true} page={"add"} id={null} />
+                    <Header shown={true} page={"add"} id={null} dialogShown={title.trim() === "" && content.trim() === ""}/>
                     <View style={styles.noteAddFields}>
                         <TextInput
                             placeholder='Title Here'
