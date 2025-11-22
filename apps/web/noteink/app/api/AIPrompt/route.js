@@ -89,7 +89,7 @@ If the question is just greeting then greet back and add how can I assist you? a
               return new NextResponse(JSON.stringify({ response: responseText }), { status: 200 });
             } catch (error) {
               console.error("Retry AI Error:", error);
-              return new NextResponse(JSON.stringify({ reply: "⚠️ Error from AI" }), { status: 500 });
+              return new NextResponse(JSON.stringify({ reply: "Error from AI" }), { status: 500 });
             }
           }
         }
