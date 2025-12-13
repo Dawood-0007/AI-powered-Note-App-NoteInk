@@ -7,6 +7,7 @@ const genAI = new GoogleGenerativeAI(GEMINI_KEY);
 export async function POST(req) {
 
   const { input, noteText, messages } = await req.json();
+  const date = new Date().toLocaleDateString();
 
   const prompt = `
 You are an assistant inside a note-taking app. The user may ask you questions with or without providing a text. 
@@ -33,6 +34,7 @@ Question: ${input}
 Text: ${noteText === "null" ? "No text provided" : noteText} 
 Previous messages: 
 ${messages.map(m => m.role + ": " + m.content).join("\n")} 
+system_instruction: The current date is ${date}. Use this date for any time-related questions.
 
 If the question is just greeting then greet back and add how can I assist you? and if question is not only greeting or not greeting then answer the question based on the text (if available) and the previous messages as well as use your own knowledge correctly and do not add greeting.
 `;
