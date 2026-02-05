@@ -5,7 +5,7 @@
     "owner": "abdullah7007",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/NoteInk.jpg",
+    "icon": "./assets/images/NoteInk.png",
     "scheme": "noteink",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -14,7 +14,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/NoteInk.jpg",
+        "foregroundImage": "./assets/images/NoteInk.png",
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
@@ -23,18 +23,21 @@
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/NoteInk.jpg"
+      "favicon": "./assets/images/NoteInk.png"
     },
     "plugins": [
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/NoteInk.jpg",
+          "image": "./assets/images/NoteInk.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
-      ]
+      ],
+      "expo-font",
+      "expo-router",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true

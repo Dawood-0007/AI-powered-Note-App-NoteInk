@@ -75,11 +75,11 @@ const index = () => {
 
     return (
         <>
-            <Stack.Screen name="add" options={{ title: "Add Note", headerShown: false }} />
+            <Stack.Screen options={{ title: "Add Note", headerShown: false }} />
             <KeyboardAvoidingView
                 behavior='padding'
                 style={{ flex: 1, backgroundColor: colors.background }}
-                keyboardVerticalOffset={1}
+                keyboardVerticalOffset={0}
             >
                 <SafeAreaView style={[styles.container, { width: platform === "web" ? chatVisible ? "calc(100% - 300px)" : "100%" : "100%", position: "absolute", right: platform === "web" ? chatVisible ? 0 : 0 : 0 }]}>
 
@@ -101,13 +101,13 @@ const index = () => {
                         <Text style={{ color: colors.text}}>Confirm</Text>
                     </View>
 
-                    <Pressable style={[styles.noteAdder, { bottom: platform !== "web" ? chatVisible ? 350 : 16 : 16 }]} onPress={handlePress}>
+                    <Pressable style={[styles.noteAdder, { bottom: platform !== "web" ? chatVisible ? 320 : 16 : 16 }]} onPress={handlePress}>
                         <Text style={styles.noteAdderText}>✓</Text>
                     </Pressable>
                     <View style={styles.askAIText}>
                         <Text style={{ color: colors.text}}>Ask AI</Text>
                     </View>
-                    <Pressable style={[styles.noteAdderAI, { bottom: platform !== "web" ? chatVisible ? 350 : 16 : 16 }]} onPress={handlePressAI}>
+                    <Pressable style={[styles.noteAdderAI, { bottom: platform !== "web" ? chatVisible ? 320 : 16 : 16 }]} onPress={handlePressAI}>
 
                         <Text style={styles.noteAdderText}>
                             <MaterialCommunityIcons name="pencil-plus-outline" size={24} color={colors.btnColor} />
