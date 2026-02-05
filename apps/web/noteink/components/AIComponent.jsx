@@ -6,7 +6,7 @@ import { useTheme } from "next-themes";
 import { Colors } from "../colors/color-theme";
 import { TbBulbFilled } from "react-icons/tb";
 
-export default function AIChatBar({ visible, onClose, noteText }) {
+export default function AIChatBar({ visible, onClose, noteText, title }) {
   const [device, setDevice] = useState("desktop");
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export default function AIChatBar({ visible, onClose, noteText }) {
 
   const { theme } = useTheme();
   const colors = theme === "light" ? Colors.light : Colors.dark;
-  
+
   const [messages, setMessages] = useState([
     { role: "assistant", content: "How can I assist you?" },
   ]);
@@ -44,17 +44,34 @@ export default function AIChatBar({ visible, onClose, noteText }) {
       const res = await fetch("/api/AIPrompt", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ input, noteText, messages: newMessages }),
+        body: JSON.stringify({ input, noteText, messages: newMessages, title}),
       });
 
       const data = await res.json();
 
       const aiMessage = data?.response || "No response from AI";
 
-      setMessages((prev) => [
-        ...prev,
-        { role: "assistant", content: aiMessage },
-      ]);
+      setMessages((prev) => [...prev, { role: "assistant", content: "" }]);
+
+      let currentText = "";
+      let index = 0;
+
+      const interval = setInterval(() => {
+        if (index < aiMessage.length) {
+          currentText += aiMessage[index];
+
+          setMessages((prev) => {
+            const updated = [...prev];
+            updated[updated.length - 1].content = currentText;
+            return updated;
+          });
+
+          index++;
+        } else {
+          clearInterval(interval);
+        }
+      }, 15);
+
     } catch (err) {
       setMessages((prev) => [
         ...prev,
@@ -72,11 +89,11 @@ export default function AIChatBar({ visible, onClose, noteText }) {
   if (!visible) return null;
 
   return (
-    <div className={styles.chatContainer} style={{ backgroundColor: colors.background, color: colors.text, borderRight: theme === "light" ? "1px solid #ccc" : "1px solid #555", width: device ==="desktop" ? "320px" : "100%", height: device === "desktop" ? "100%" : "40%" }}>
-      <hr className={styles.chatDivider} style={{ display: device === "desktop" ? "none" : "block"}}/>
-      <div className={styles.chatHeader} style={{ marginBottom: device === "desktop" ? "20px" : "0px"}}>
+    <div className={styles.chatContainer} style={{ backgroundColor: colors.background, color: colors.text, borderRight: theme === "light" ? "1px solid #ccc" : "1px solid #555", width: device === "desktop" ? "320px" : "100%", height: device === "desktop" ? "100%" : "40%" }}>
+      <hr className={styles.chatDivider} style={{ display: device === "desktop" ? "none" : "block" }} />
+      <div className={styles.chatHeader} style={{ marginBottom: device === "desktop" ? "20px" : "0px" }}>
         <p className={styles.chatHeaderText}>Notes</p>
-        <button className={styles.chatClose} style={{ color: colors.text}} onClick={handleClose}>
+        <button className={styles.chatClose} style={{ color: colors.text }} onClick={handleClose}>
           ⓧ
         </button>
       </div>
@@ -87,11 +104,10 @@ export default function AIChatBar({ visible, onClose, noteText }) {
         {messages.map((item, index) => (
           <p
             key={index}
-            className={`${styles.chatBubble} ${
-              item.role === "user"
+            className={`${styles.chatBubble} ${item.role === "user"
                 ? styles.chatBubbleUser
                 : styles.chatBubbleAssistant
-            }`}
+              }`}
           >
             {item.content}
           </p>

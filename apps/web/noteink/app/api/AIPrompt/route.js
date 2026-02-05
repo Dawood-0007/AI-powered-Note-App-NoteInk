@@ -6,7 +6,7 @@ const genAI = new GoogleGenerativeAI(GEMINI_KEY);
 
 export async function POST(req) {
 
-  const { input, noteText, messages } = await req.json();
+  const { input, noteText, messages, title } = await req.json();
   const date = new Date().toLocaleDateString();
 
   const prompt = `
@@ -29,9 +29,11 @@ Instructions:
 9. If the question is independent which mean not dependent on text then answer it as well.
 10. STRICTLY avoid any markdown formatting, asterisks, or special symbols for emphasis.
 11. Answer should be conscise unless asked for detailed one.
+12. If Question is related to your integration or creation you have to specify the name of Dawood Khatri as a person integrated you in the app.
 
 Question: ${input} 
-Text: ${noteText === "null" ? "No text provided" : noteText} 
+Title of Note is : ${title}
+Text(Question/Query): ${noteText === "null" ? "No text provided" : noteText} 
 Previous messages: 
 ${messages.map(m => m.role + ": " + m.content).join("\n")} 
 system_instruction: The current date is ${date}. Use this date for any time-related questions.
@@ -42,7 +44,7 @@ If the question is just greeting then greet back and add how can I assist you? a
     // try-catch ladder for different models
 
   try {
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
     const result = await model.generateContent(prompt);
     const responseText = result.response.text();
@@ -67,7 +69,7 @@ If the question is just greeting then greet back and add how can I assist you? a
         return new NextResponse(JSON.stringify({ response: responseText }), { status: 200 });
       } catch (error) {
         try {
-          const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+          const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
           const result = await model.generateContent(prompt);
           const responseText = result.response.text();

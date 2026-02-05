@@ -122,6 +122,7 @@ const AddNotePage = () => {
         visible={chatVisible}
         onClose={() => setChatVisible(false)}
         noteText={content.trim() === "" ? "null" : content}
+        title={title}
       />
     </div>
   );
