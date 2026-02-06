@@ -46,12 +46,6 @@ As well as, you can visit website to see the web version [here](https://noteink-
    npm install
    ```
 
-3. Create a `.env` file in the `mobile/NoteInk` directory and add your Gemini API key:
-
-   ```env
-   EXPO_PUBLIC_GEMINI_API_KEY=your-gemini-api-key
-   ```
-
 4. Start the Expo development server:
 
    ```bash
