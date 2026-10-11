@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import styles from "../styles/AIcomponent.module.css";
 import { useTheme } from "next-themes";
 import { Colors } from "../colors/color-theme";
-import { TbBulbFilled } from "react-icons/tb";
+import { motion } from "motion/react";
 
 export default function AIChatBar({ visible, onClose, noteText, title }) {
   const [device, setDevice] = useState("desktop");
@@ -55,22 +55,22 @@ export default function AIChatBar({ visible, onClose, noteText, title }) {
 
       let currentText = "";
       let index = 0;
+      const words = aiMessage.split(" ");
 
       const interval = setInterval(() => {
-        if (index < aiMessage.length) {
-          currentText += aiMessage[index];
+        if (index < words.length) {
+          currentText = currentText + " " + words[index];
 
           setMessages((prev) => {
             const updated = [...prev];
             updated[updated.length - 1].content = currentText;
             return updated;
           });
-
           index++;
         } else {
           clearInterval(interval);
         }
-      }, 15);
+      }, 30);
 
     } catch (err) {
       setMessages((prev) => [
@@ -102,15 +102,15 @@ export default function AIChatBar({ visible, onClose, noteText, title }) {
 
       <div className={styles.chatMessages}>
         {messages.map((item, index) => (
-          <p
-            key={index}
+          <motion.div 
+          key={index}
             className={`${styles.chatBubble} ${item.role === "user"
                 ? styles.chatBubbleUser
                 : styles.chatBubbleAssistant
               }`}
-          >
-            {item.content}
-          </p>
+              initial={{ opacity: 0, y: 10 }} 
+              animate={{ opacity: 1, y: 0 }}
+              >{item.content}</motion.div>
         ))}
         {generating && <p className={styles.chatGenerating}>generating ...</p>}
       </div>
